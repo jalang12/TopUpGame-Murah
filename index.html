@@ -19,9 +19,9 @@
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#" class="text-slate-300 hover:text-indigo-400 font-medium">Beranda</a>
                     <a href="#games" class="text-slate-300 hover:text-indigo-400 font-medium">Daftar Game</a>
-                    <a href="#calculator" class="text-slate-300 hover:text-indigo-400 font-medium">Cek Transaksi</a>
-                    <a href="#games" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow-lg shadow-indigo-600/30">
-                        Top Up Sekarang
+                    <a href="#calculator" class="text-slate-300 hover:text-indigo-400 font-medium">Form Top Up</a>
+                    <a href="https://wa.me/6281977599378?text=Halo%20Natuna%20Store,%20saya%20ingin%20bertanya%20mengenai%20layanan%20top%20up%20game." target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition shadow-lg shadow-indigo-600/30">
+                        Admin WhatsApp
                     </a>
                 </div>
             </div>
@@ -36,11 +36,11 @@
                 Top Up Diamond & Voucher Game <span class="text-indigo-500">Tercepat</span>
             </h1>
             <p class="text-base sm:text-lg text-slate-400 mb-8 max-w-2xl mx-auto">
-                Proses instan 1-3 detik langsung masuk akun. Aman, terpercaya, dan harga paling bersahabat untuk para gamers sejati.
+                Proses instan langsung masuk akun. Aman, terpercaya, dan harga paling bersahabat untuk para gamers sejati.
             </p>
             <div class="flex justify-center gap-4">
-                <a href="#games" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-indigo-600/30 transition">
-                    Pilih Game Favorit
+                <a href="#calculator" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-8 py-3.5 rounded-xl shadow-lg shadow-indigo-600/30 transition">
+                    Mulai Top Up
                 </a>
             </div>
         </div>
@@ -62,9 +62,9 @@
                 </div>
                 <h3 class="font-bold text-lg text-white">Mobile Legends</h3>
                 <p class="text-xs text-slate-400 mt-1">Moonton</p>
-                <button onclick="alert('Membuka menu Top Up Mobile Legends!')" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
+                <a href="#calculator" class="mt-4 block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
                     Top Up
-                </button>
+                </a>
             </div>
 
             <!-- Game 2: Free Fire -->
@@ -74,9 +74,9 @@
                 </div>
                 <h3 class="font-bold text-lg text-white">Free Fire</h3>
                 <p class="text-xs text-slate-400 mt-1">Garena</p>
-                <button onclick="alert('Membuka menu Top Up Free Fire!')" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
+                <a href="#calculator" class="mt-4 block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
                     Top Up
-                </button>
+                </a>
             </div>
 
             <!-- Game 3: PUBG Mobile -->
@@ -86,9 +86,9 @@
                 </div>
                 <h3 class="font-bold text-lg text-white">PUBG Mobile</h3>
                 <p class="text-xs text-slate-400 mt-1">Tencent Games</p>
-                <button onclick="alert('Membuka menu Top Up PUBG Mobile!')" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
+                <a href="#calculator" class="mt-4 block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
                     Top Up
-                </button>
+                </a>
             </div>
 
             <!-- Game 4: Genshin Impact -->
@@ -98,42 +98,51 @@
                 </div>
                 <h3 class="font-bold text-lg text-white">Genshin Impact</h3>
                 <p class="text-xs text-slate-400 mt-1">HoYoverse</p>
-                <button onclick="alert('Membuka menu Top Up Genshin Impact!')" class="mt-4 w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
+                <a href="#calculator" class="mt-4 block w-full bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold py-2 rounded-xl transition">
                     Top Up
-                </button>
+                </a>
             </div>
 
         </div>
     </section>
 
-    <!-- 4. FORM SIMULASI TOP UP -->
+    <!-- 4. FORM PEMESANAN / TOP UP -->
     <section id="calculator" class="py-16 bg-slate-900/50 border-t border-slate-800">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-10">
                 <h2 class="text-3xl font-black tracking-tight">Formulir Pesanan Cepat</h2>
-                <p class="text-slate-400 mt-2">Masukkan data akun dan nominal yang ingin dibeli.</p>
+                <p class="text-slate-400 mt-2">Masukkan data akun dan nominal pilihanmu, lalu teruskan pesanan via WhatsApp.</p>
             </div>
 
             <div class="bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl">
-                <form onsubmit="handleTopUp(event)" class="space-y-6">
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">User ID Game</label>
-                            <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white" placeholder="Contoh: 12345678">
+                <form id="topupForm" onsubmit="sendToWhatsApp(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="sm:col-span-1">
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Pilih Game</label>
+                            <select id="gameName" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
+                                <option value="Mobile Legends">Mobile Legends</option>
+                                <option value="Free Fire">Free Fire</option>
+                                <option value="PUBG Mobile">PUBG Mobile</option>
+                                <option value="Genshin Impact">Genshin Impact</option>
+                            </select>
                         </div>
                         <div>
-                            <label class="block text-sm font-medium text-slate-300 mb-2">Zone ID / Server (Jika ada)</label>
-                            <input type="text" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white" placeholder="Contoh: (2121)">
+                            <label class="block text-sm font-medium text-slate-300 mb-2">User ID Game</label>
+                            <input type="text" id="userId" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white" placeholder="Contoh: 12345678">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-2">Zone ID / Server</label>
+                            <input type="text" id="zoneId" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white" placeholder="Contoh: (2121)">
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-2">Pilih Nominal Item</label>
-                        <select class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
-                            <option>86 Diamonds - Rp 20.000</option>
-                            <option>172 Diamonds - Rp 40.000</option>
-                            <option>257 Diamonds - Rp 60.000</option>
-                            <option>706 Diamonds - Rp 150.000</option>
+                        <select id="itemNominal" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white">
+                            <option value="86 Diamonds - Rp 20.000">86 Diamonds - Rp 20.000</option>
+                            <option value="172 Diamonds - Rp 40.000">172 Diamonds - Rp 40.000</option>
+                            <option value="257 Diamonds - Rp 60.000">257 Diamonds - Rp 60.000</option>
+                            <option value="706 Diamonds - Rp 150.000">706 Diamonds - Rp 150.000</option>
                         </select>
                     </div>
 
@@ -141,22 +150,22 @@
                         <label class="block text-sm font-medium text-slate-300 mb-2">Metode Pembayaran</label>
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
                             <label class="p-3 border border-slate-800 rounded-xl bg-slate-950 flex items-center justify-center cursor-pointer hover:border-indigo-500">
-                                <input type="radio" name="pay" checked class="mr-2"> QRIS
+                                <input type="radio" name="payMethod" value="QRIS" checked class="mr-2"> QRIS
                             </label>
                             <label class="p-3 border border-slate-800 rounded-xl bg-slate-950 flex items-center justify-center cursor-pointer hover:border-indigo-500">
-                                <input type="radio" name="pay" class="mr-2"> DANA
+                                <input type="radio" name="payMethod" value="DANA" class="mr-2"> DANA
                             </label>
                             <label class="p-3 border border-slate-800 rounded-xl bg-slate-950 flex items-center justify-center cursor-pointer hover:border-indigo-500">
-                                <input type="radio" name="pay" class="mr-2"> OVO
+                                <input type="radio" name="payMethod" value="OVO" class="mr-2"> OVO
                             </label>
                             <label class="p-3 border border-slate-800 rounded-xl bg-slate-950 flex items-center justify-center cursor-pointer hover:border-indigo-500">
-                                <input type="radio" name="pay" class="mr-2"> BCA
+                                <input type="radio" name="payMethod" value="BCA" class="mr-2"> BCA
                             </label>
                         </div>
                     </div>
 
                     <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-extrabold py-4 rounded-xl shadow-lg shadow-indigo-600/30 transition text-center block">
-                        Beli Sekarang 🚀
+                        Pesan & Bayar via WhatsApp 🚀
                     </button>
                 </form>
             </div>
@@ -167,15 +176,29 @@
     <footer class="bg-slate-900 border-t border-slate-800 py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-slate-400 text-sm">
             <p class="font-bold text-white text-lg mb-2">NATUNA STORE</p>
-            <p class="mb-4">Platform Top Up Game Terpercaya di Natuna dan Seluruh Indonesia.</p>
+            <p class="mb-2">Platform Top Up Game Terpercaya & Proses Cepat.</p>
+            <p class="mb-4">📞 WhatsApp Admin: 0819-7759-9378</p>
             <p>&copy; 2026 Natuna Store. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- SCRIPT JAVASCRIPT UNTUK KIRIM KE WHATSAPP -->
     <script>
-        function handleTopUp(event) {
+        function sendToWhatsApp(event) {
             event.preventDefault();
-            alert("Pesanan berhasil diproses! Silakan selesaikan pembayaran.");
+            
+            const game = document.getElementById('gameName').value;
+            const userId = document.getElementById('userId').value;
+            const zoneId = document.getElementById('zoneId').value;
+            const nominal = document.getElementById('itemNominal').value;
+            const payment = document.querySelector('input[name="payMethod"]:checked').value;
+            
+            // Nomor WhatsApp tujuan (nomor lo)
+            const adminPhone = "6281977599378"; 
+            
+            const message = `Halo Natuna Store,%0A%0ASaya ingin melakukan Top Up game dengan detail berikut:%0A%0A- Game: *${game}*%0A- User ID: *${userId}*%0A- Server / Zone ID: *${zoneId ? zoneId : '-'}*%0A- Nominal: *${nominal}*%0A- Metode Pembayaran: *${payment}*%0A%0AMohon instruksi pembayaran selanjutnya. Terima kasih!`;
+            
+            window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
         }
     </script>
 </body>
