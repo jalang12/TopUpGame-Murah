@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Natuna Store</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen" class="fixed inset-0 bg-slate-950 z-50 flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 p-8 rounded-3xl max-w-sm w-full shadow-2xl">
+            <h2 class="text-2xl font-black text-white mb-2 text-center">🔐 Admin Login</h2>
+            <p class="text-slate-400 text-xs text-center mb-6">Masukkan sandi rahasia untuk masuk ke panel.</p>
+            <form onsubmit="handleLogin(event)" class="space-y-4">
+                <input type="password" id="adminPassword" required placeholder="Sandi (natuna123)" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:ring-2 focus:ring-indigo-500 focus:outline-none text-white text-sm">
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-xl transition text-sm shadow-lg shadow-indigo-600/30">
+                    Masuk Panel
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- MAIN PANEL -->
+    <div>
+        <!-- NAVBAR -->
+        <nav class="bg-slate-900 border-b border-slate-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between h-16 items-center">
+                    <span class="text-xl font-extrabold tracking-wider text-indigo-500">NATUNA<span class="text-white">ADMIN</span></span>
+                    <button onclick="logoutAdmin()" class="bg-rose-600/20 text-rose-400 hover:bg-rose-600 hover:text-white px-4 py-2 rounded-xl text-xs font-bold transition">
+                        Keluar
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- KONTEN -->
+        <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+            <div>
+                <h1 class="text-3xl font-black text-white">Dashboard Kelola Pesanan</h1>
+                <p class="text-slate-400 text-sm mt-1">Catat dan kirim struk bukti sukses top-up ke pelanggan.</p>
+            </div>
+
+            <!-- FORM TAMBAH PESANAN MANUAL -->
+            <div class="bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl space-y-6">
+                <h2 class="text-lg font-bold text-indigo-400">➕ Catat & Kirim Struk ke Pembeli</h2>
+                
+                <form onsubmit="addOrderAndSend(event)" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1">Nama Pembeli</label>
+                            <input type="text" id="buyerName" required placeholder="Contoh: Budi" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm outline-none focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1">No. WhatsApp</label>
+                            <input type="tel" id="buyerPhone" required placeholder="62819xxxx" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm outline-none focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1">Pilih Game</label>
+                            <select id="orderGame" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm outline-none focus:border-indigo-500">
+                                <option value="Mobile Legends">Mobile Legends</option>
+                                <option value="Free Fire">Free Fire</option>
+                                <option value="PUBG Mobile">PUBG Mobile</option>
+                                <option value="Genshin Impact">Genshin Impact</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1">User ID / Server ID</label>
+                            <input type="text" id="orderUserId" required placeholder="12345678 (2121)" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm outline-none focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-400 mb-1">Nominal Item</label>
+                            <input type="text" id="orderItem" required placeholder="86 Diamonds - Rp 22.000" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 text-white text-sm outline-none focus:border-indigo-500">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-lg shadow-emerald-600/30 transition text-sm">
+                        Simpan ke Riwayat & Kirim Struk WhatsApp 🚀
+                    </button>
+                </form>
+            </div>
+
+            <!-- TABEL DAFTAR RIWAYAT PESANAN -->
+            <div class="bg-slate-900 p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-xl space-y-4">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-lg font-bold text-white">📋 Daftar Riwayat Pesanan Masuk</h2>
+                    <button onclick="clearAllOrders()" class="text-xs text-rose-400 hover:underline">Hapus Semua</button>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="bg-slate-950 text-slate-400 uppercase border-b border-slate-800">
+                            <tr>
+                                <th class="p-3">Waktu</th>
+                                <th class="p-3">Pembeli</th>
+                                <th class="p-3">Game & User ID</th>
+                                <th class="p-3">Item</th>
+                                <th class="p-3">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orderTableBody" class="divide-y divide-slate-800">
+                            <!-- Data dimuat dinamis dari script -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-6 text-center text-slate-500 text-xs mt-10">
+        &copy; 2026 Natuna Store - Admin Control Panel.
+    </footer>
+
+    <!-- SCRIPT -->
+    <script>
+        const SECRET_PIN = "natuna123";
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const pass = document.getElementById('adminPassword').value;
+            if(pass === SECRET_PIN) {
+                document.getElementById('loginScreen').style.display = 'none';
+                loadOrders();
+            } else {
+                alert('Sandi salah!');
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('adminPassword').value = '';
+            document.getElementById('loginScreen').style.display = 'flex';
+        }
+
+        // Ambil data dari LocalStorage
+        function getOrders() {
+            let orders = localStorage.getItem('natuna_orders');
+            return orders ? JSON.parse(orders) : [];
+        }
+
+        // Simpan pesanan & buka WhatsApp
+        function addOrderAndSend(event) {
+            event.preventDefault();
+
+            let name = document.getElementById('buyerName').value;
+            let phone = document.getElementById('buyerPhone').value;
+            let game = document.getElementById('orderGame').value;
+            let userId = document.getElementById('orderUserId').value;
+            let item = document.getElementById('orderItem').value;
+
+            if(phone.startsWith('0')) {
+                phone = '62' + phone.slice(1);
+            }
+
+            const newOrder = {
+                id: 'NAT-' + Math.floor(100000 + Math.random() * 900000),
+                time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                name, phone, game, userId, item
+            };
+
+            let orders = getOrders();
+            orders.unshift(newOrder); // Masukkan ke urutan paling atas
+            localStorage.setItem('natuna_orders', JSON.stringify(orders));
+
+            loadOrders();
+
+            // Format Pesan WhatsApp
+            const message = `*✨ STRUK BUKTI TRANSAKSI SUKSES ✨*%0A*NATUNA STORE*%0A%0PHalo Kak *${name}*, pesanan top up game Anda sudah diproses!%0A%0A- No. Invoice: *${newOrder.id}*%0A- Game: *${game}*%0A- User ID: *${userId}*%0A- Item: *${item}*%0A- Status: *SUKSES (MASUK)*%0A%0ATerima kasih sudah berbelanja di Natuna Store! 🙏`;
+
+            window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+            
+            // Reset form
+            event.target.reset();
+        }
+
+        // Tampilkan data ke tabel HTML
+        function loadOrders() {
+            const tbody = document.getElementById('orderTableBody');
+            const orders = getOrders();
+            
+            if(orders.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="5" class="p-4 text-center text-slate-500">Belum ada riwayat pesanan tercatat.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = '';
+            orders.forEach((ord, index) => {
+                tbody.innerHTML += `
+                    <tr class="hover:bg-slate-900/50">
+                        <td class="p-3 text-slate-400">${ord.time}</td>
+                        <td class="p-3 font-bold text-white">${ord.name}<br><span class="text-[10px] text-slate-400">${ord.phone}</span></td>
+                        <td class="p-3 text-indigo-400">${ord.game}<br><span class="text-slate-300">${ord.userId}</span></td>
+                        <td class="p-3 text-emerald-400 font-bold">${ord.item}</td>
+                        <td class="p-3">
+                            <button onclick="deleteOrder(${index})" class="bg-rose-500/20 text-rose-400 hover:bg-rose-500 hover:text-white px-2 py-1 rounded transition">Hapus</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function deleteOrder(index) {
+            let orders = getOrders();
+            orders.splice(index, 1);
+            localStorage.setItem('natuna_orders', JSON.stringify(orders));
+            loadOrders();
+        }
+
+        function clearAllOrders() {
+            if(confirm('Yakin ingin menghapus seluruh riwayat pesanan?')) {
+                localStorage.removeItem('natuna_orders');
+                loadOrders();
+            }
+        }
+    </script>
+</body>
+</html>
